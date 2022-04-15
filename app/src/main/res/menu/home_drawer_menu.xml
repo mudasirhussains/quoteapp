@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/nav_homebutton"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/nav_categories"
+            android:icon="@drawable/nav_homebutton"
+            android:title="@string/categories" />
+        <item
+            android:id="@+id/nav_download"
+            android:icon="@drawable/nav_homebutton"
+            android:title="@string/downloads" />
+        <item
+            android:id="@+id/nav_youtube"
+            android:icon="@drawable/nav_homebutton"
+            android:title="@string/youtube" />
+        <item
+            android:id="@+id/nav_instagram"
+            android:icon="@drawable/nav_homebutton"
+            android:title="@string/instagram" />
+        <item
+            android:id="@+id/nav_facebook"
+            android:icon="@drawable/nav_homebutton"
+            android:title="@string/facebook" />
+    </group>
+</menu>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable-v24/background_round_padded.xml" value="0.2111111111111111" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/background_round_padded.xml" value="0.2111111111111111" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/call_background_stroke.xml" value="0.1328125" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/ic_like.xml" value="0.2111111111111111" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/ic_navigationicon.xml" value="0.25833333333333336" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/like_background_oval.xml" value="0.2111111111111111" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/menu_background_color_state.xml" value="0.2111111111111111" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/shape_tab_indicator.xml" value="0.25833333333333336" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/transition_background_drawable_like.xml" value="0.2111111111111111" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/layout/activity_main.xml" value="0.17300724637681159" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/layout/exit_dialog.xml" value="0.17300724637681159" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/layout/fragment_home.xml" value="0.17300724637681159" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/layout/nav_header_main.xml" value="0.17300724637681159" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/layout/shape_tab_indicator.xml" value="0.17300724637681159" />
+        <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/menu/home_drawer_menu.xml" value="0.23846153846153847" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

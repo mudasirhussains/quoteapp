@@ -1,0 +1,2 @@
+rootProject.name = "Daily Qoutes Motivational Custom"
+include ':app'
