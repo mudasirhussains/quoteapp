@@ -98,17 +98,39 @@ class MainActivity : AppCompatActivity() {
         setupDrawerContent(binding.navView)
     }
 
-    private fun setDefaultFragment(savedInstanceState: Bundle?) {
-        if (savedInstanceState == null) {
-            val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.add(
-                R.id.flContent,
-                HomeFragment()
-            )
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
+    /*  private fun setDefaultFragment(savedInstanceState: Bundle?) {
+          if (savedInstanceState == null) {
+              val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+              fragmentTransaction.add(
+                  R.id.flContent,
+                  HomeFragment()
+              )
+              fragmentTransaction.addToBackStack(null)
+              fragmentTransaction.commit()
+          }
+      }*/
+
+    private fun setFragment(fragment: Fragment) {
+        val backStateName = fragment.javaClass.name
+        val manager = supportFragmentManager
+        val fragmentPopped = manager.popBackStackImmediate(backStateName, 0)
+        if (!fragmentPopped) { //fragment not in back stack, create it.
+            val ft = manager.beginTransaction()
+            ft.replace(R.id.flContent, fragment)
+            ft.addToBackStack(backStateName)
+            ft.commit()
         }
     }
+    /*  private fun setFragment(fragment: Fragment) {
+          val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+          fragmentTransaction.add(
+              R.id.flContent,
+              fragment
+          )
+          fragmentTransaction.addToBackStack(null)
+          fragmentTransaction.commit()
+
+      }*/
 
     // to use three dots
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -139,15 +161,23 @@ class MainActivity : AppCompatActivity() {
         when (menuItem.itemId) {
             R.id.nav_home -> {
                 closeDrawer()
+                binding.viewPager.setCurrentItem(
+                    0,
+                    true
+                )
                 Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_categories -> {
                 if (isNetworkAvailable(applicationContext!!)) {
+                    binding.viewPager.setCurrentItem(
+                        1,
+                        true
+                    )
                     Toast.makeText(this, "Category", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(
                         applicationContext,
-                        "Please connect to internet",
+                        "Please connect to  Internet",
                         Toast.LENGTH_SHORT
                     ).show()
                     closeDrawer()
@@ -155,11 +185,15 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_download -> {
                 if (isNetworkAvailable(applicationContext!!)) {
+                    binding.viewPager.setCurrentItem(
+                        2,
+                        true
+                    )
                     Toast.makeText(this, "Download", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(
                         applicationContext,
-                        "Please connect to internet",
+                        "Please connect to   Internet",
                         Toast.LENGTH_SHORT
                     ).show()
                     closeDrawer()
@@ -171,7 +205,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         applicationContext,
-                        "Please connect to internet",
+                        "Please connect to  Internet",
                         Toast.LENGTH_SHORT
                     ).show()
                     closeDrawer()
@@ -183,7 +217,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         applicationContext,
-                        "Please connect to internet",
+                        "Please connect to  Internet",
                         Toast.LENGTH_SHORT
                     ).show()
                     closeDrawer()
@@ -195,7 +229,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(
                         applicationContext,
-                        "Please connect to internet",
+                        "Please connect to  Internet",
                         Toast.LENGTH_SHORT
                     ).show()
                     closeDrawer()
