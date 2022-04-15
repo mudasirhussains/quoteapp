@@ -116,9 +116,9 @@
             android:layout_gravity="bottom"
             android:background="@color/white"
             android:elevation="8dp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:orientation="horizontal"
             android:paddingTop="@dimen/_5sdp"
-            android:orientation="horizontal">
+            android:paddingBottom="@dimen/_5sdp">
 
             <com.gauravk.bubblenavigation.BubbleToggleView
                 android:id="@+id/l_item_home"
@@ -132,7 +132,7 @@
                 app:bt_title="@string/home" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_search"
+                android:id="@+id/l_item_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:bt_badgeBackgroundColor="@color/green_active"
@@ -140,37 +140,37 @@
                 app:bt_colorInactive="@color/blue_inactive"
                 app:bt_icon="@drawable/ic_search"
                 app:bt_shape="@drawable/transition_background_drawable_search"
-                app:bt_title="Search" />
+                app:bt_title="@string/category" />
 
             <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_profile_list"
+                android:id="@+id/l_item_downloads"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:bt_colorActive="@color/blue_grey_active"
                 app:bt_colorInactive="@color/blue_grey_inactive"
                 app:bt_icon="@drawable/ic_like"
                 app:bt_shape="@drawable/transition_background_drawable_like"
-                app:bt_title="Likes" />
+                app:bt_title="@string/download" />
 
-            <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_notification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:bt_colorActive="@color/green_active"
-                app:bt_colorInactive="@color/green_inactive"
-                app:bt_icon="@drawable/ic_playlist"
-                app:bt_shape="@drawable/transition_background_drawable_list"
-                app:bt_title="Notification" />
+            <!--<com.gauravk.bubblenavigation.BubbleToggleView
+               android:id="@+id/l_item_notification"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:bt_colorActive="@color/green_active"
+               app:bt_colorInactive="@color/green_inactive"
+               app:bt_icon="@drawable/ic_playlist"
+               app:bt_shape="@drawable/transition_background_drawable_list"
+               app:bt_title="Notification" />
 
-            <com.gauravk.bubblenavigation.BubbleToggleView
-                android:id="@+id/l_item_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:bt_colorActive="@color/purple_active"
-                app:bt_colorInactive="@color/purple_inactive"
-                app:bt_icon="@drawable/ic_person"
-                app:bt_shape="@drawable/transition_background_drawable_person"
-                app:bt_title="Profile" />
+           <com.gauravk.bubblenavigation.BubbleToggleView
+               android:id="@+id/l_item_profile"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               app:bt_colorActive="@color/purple_active"
+               app:bt_colorInactive="@color/purple_inactive"
+               app:bt_icon="@drawable/ic_person"
+               app:bt_shape="@drawable/transition_background_drawable_person"
+               app:bt_title="Profile" />-->
 
             <!-- Add more child items here - max upto 5 -->
 

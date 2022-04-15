@@ -17,15 +17,24 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentTransaction
+import androidx.viewpager.widget.ViewPager
 import com.example.dailyqoutesmotivational.databinding.ActivityMainBinding
+import com.example.dailyqoutesmotivational.ui.CategoryFragment
+import com.example.dailyqoutesmotivational.ui.DownloadFragment
 import com.example.dailyqoutesmotivational.ui.HomeFragment
+import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener
 import com.google.android.material.navigation.NavigationView
+import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var drawerToggle: ActionBarDrawerToggle
     private lateinit var binding: ActivityMainBinding
+    private lateinit var adapter: ViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +42,30 @@ class MainActivity : AppCompatActivity() {
 
         setBinding()
         setDrawer()
-        setDefaultFragment(savedInstanceState)
+        // setDefaultFragment(savedInstanceState)
         setDrawerToggle()
+
+        adapter = ViewPagerAdapter(supportFragmentManager)
+        adapter.addFragment(HomeFragment(), "Home")
+        adapter.addFragment(CategoryFragment(), "Category")
+        adapter.addFragment(DownloadFragment(), "Download")
+        binding.viewPager.adapter = adapter
+        binding.viewPager.offscreenPageLimit = 3
+        binding.viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(i: Int, v: Float, i1: Int) {}
+            override fun onPageSelected(i: Int) {
+                binding.bottomNavigationViewLinear.setCurrentActiveItem(i)
+            }
+
+            override fun onPageScrollStateChanged(i: Int) {}
+        })
+
+        binding.bottomNavigationViewLinear.setNavigationChangeListener { view, position ->
+            binding.viewPager.setCurrentItem(
+                position,
+                true
+            )
+        }
     }
 
     private fun setDrawer() {
@@ -72,7 +103,8 @@ class MainActivity : AppCompatActivity() {
             val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
             fragmentTransaction.add(
                 R.id.flContent,
-                HomeFragment())
+                HomeFragment()
+            )
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
@@ -105,11 +137,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun selectDrawerItem(menuItem: MenuItem) {
         when (menuItem.itemId) {
-            R.id.nav_home ->
+            R.id.nav_home -> {
                 closeDrawer()
+                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+            }
             R.id.nav_categories -> {
                 if (isNetworkAvailable(applicationContext!!)) {
-                    goToVideos()
+                    Toast.makeText(this, "Category", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(
                         applicationContext,
@@ -121,7 +155,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_download -> {
                 if (isNetworkAvailable(applicationContext!!)) {
-                    goToVideos()
+                    Toast.makeText(this, "Download", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(
                         applicationContext,
@@ -133,7 +167,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_youtube -> {
                 if (isNetworkAvailable(applicationContext!!)) {
-                    goToVideos()
+                    Toast.makeText(this, "Youtube", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(
                         applicationContext,
@@ -145,7 +179,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_instagram -> {
                 if (isNetworkAvailable(applicationContext!!)) {
-                    goToVideos()
+                    Toast.makeText(this, "Instagram", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(
                         applicationContext,
@@ -157,7 +191,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.nav_facebook -> {
                 if (isNetworkAvailable(applicationContext!!)) {
-                    goToVideos()
+                    Toast.makeText(this, "Facebook", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(
                         applicationContext,
@@ -175,7 +209,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goToVideos() {
-      //  startActivity(Intent(applicationContext, VideoListingActivity::class.java))
+        //  startActivity(Intent(applicationContext, VideoListingActivity::class.java))
     }
 
     private fun closeDrawer() {
@@ -219,4 +253,25 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    class ViewPagerAdapter(manager: FragmentManager?) :
+        FragmentPagerAdapter(manager!!) {
+        private val mFragmentList: MutableList<Fragment> = ArrayList()
+        private val mFragmentTitleList: MutableList<String> = ArrayList()
+        override fun getItem(position: Int): Fragment {
+            return mFragmentList[position]
+        }
+
+        override fun getCount(): Int {
+            return mFragmentList.size
+        }
+
+        fun addFragment(fragment: Fragment, title: String) {
+            mFragmentList.add(fragment)
+            mFragmentTitleList.add(title)
+        }
+
+        override fun getPageTitle(position: Int): CharSequence? {
+            return mFragmentTitleList[position]
+        }
+    }
 }

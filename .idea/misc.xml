@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Daily Quotes Motivational Custom/app/src/main/res/drawable/ic_home.xml" value="0.20833333333333334" />
+        <entry key="..\:/Daily Quotes Motivational Custom/app/src/main/res/layout/activity_main.xml" value="0.22916666666666666" />
+        <entry key="..\:/Daily Quotes Motivational Custom/app/src/main/res/layout/fragment_category.xml" value="0.22916666666666666" />
+        <entry key="..\:/Daily Quotes Motivational Custom/app/src/main/res/layout/fragment_download.xml" value="0.228125" />
+        <entry key="..\:/Daily Quotes Motivational Custom/app/src/main/res/layout/fragment_home.xml" value="0.22916666666666666" />
         <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable-v24/background_round_padded.xml" value="0.2111111111111111" />
         <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/background_round_padded.xml" value="0.2111111111111111" />
         <entry key="..\:/DailyQoutesMotivationalCustom/app/src/main/res/drawable/call_background_stroke.xml" value="0.1328125" />
